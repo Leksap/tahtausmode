@@ -6,7 +6,7 @@ Fivem tähtäysmode scripti jolla pelaajat voi vaihtaa thirdpersonin ja firstper
 - Thirdpersonissa rekyyli
 
 ## Asennus
-1. Lataa kusi scripti
+1. Lataa tää paska scripti
 2. Varmista että sulla on [ox_lib](https://github.com/overextended/ox_lib/tree/master) ladattu servulle
 3. Pistä resources kansioon
 4. Poista mahdollisest firstperson scriptit ja rekyyli scriptit ja kato ettei mikää scripti piilota crossua `HideHudComponentThisFrame(14)`
