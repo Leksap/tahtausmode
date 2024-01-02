@@ -10,7 +10,7 @@ Fivem tähtäysmode scripti jolla pelaajat voi vaihtaa thirdpersonin ja firstper
 1. Lataa tää paska scripti
 2. Varmista että sulla on [ox_lib](https://github.com/overextended/ox_lib/tree/master) ladattu servulle
 3. Pistä resources kansioon
-4. Poista mahdollisest firstperson scriptit ja rekyyli scriptit ja kato ettei mikää scripti piilota crossua `HideHudComponentThisFrame(14)`
+4. Poista mahdolliset firstperson scriptit ja rekyyli scriptit ja kato ettei mikää scripti piilota crossua `HideHudComponentThisFrame(14)`
 5. Lisää `start tahtausmode` servun `server.cfg` filuun.
 
 ## Käyttö
