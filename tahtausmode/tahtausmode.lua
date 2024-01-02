@@ -65,7 +65,7 @@ lib.registerContext({
         onSelect = function()
           SetResourceKvpInt("Persoona", 0) -- Pois
           OnkPaalla = false
-          lib.notify({title = 'Ampumatyyli: Thirdperson' ,description = 'eiku vaa lasettaa',type = 'success', position = 'center-left'})
+          lib.notify({title = 'Ampumatyyli: Thirdperson', description = 'Voit myöhemmin vaihtaa tätä tekemällä /tähtäysmode', duration = 10000, type = 'success', position = 'center-left'})
         end,
       },
       {
@@ -76,7 +76,7 @@ lib.registerContext({
         onSelect = function()
             SetResourceKvpInt("Persoona", 1) -- Päällä
             OnkPaalla = true
-          lib.notify({title = 'Ampumatyyli: Firstperson' ,description = 'eiku vaa lasettaa',type = 'success', position = 'center-left'})
+          lib.notify({title = 'Ampumatyyli: Firstperson', description = 'Voit myöhemmin vaihtaa tätä tekemällä /tähtäysmode', duration = 10000, type = 'success', position = 'center-left'})
         end,
       },
     }
