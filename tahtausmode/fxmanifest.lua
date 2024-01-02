@@ -2,7 +2,7 @@ fx_version 'cerulean'
 game 'gta5'
 author 'Leksa'
 description 'Unityn tähtäysmode'
-version '1.1'
+version '1.0.1'
 
 lua54 'yes'
 
