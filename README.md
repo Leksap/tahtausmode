@@ -4,6 +4,7 @@ Fivem tähtäysmode scripti jolla pelaajat voi vaihtaa thirdpersonin ja firstper
 ## Ominaisuudet
 - Tallentaa valinnan kvp databaseen
 - Thirdpersonissa rekyyli
+- Syncaa valinnan kaikille servuille missä scripti on käytössä
 
 ## Asennus
 1. Lataa tää paska scripti
