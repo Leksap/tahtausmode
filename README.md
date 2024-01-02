@@ -17,8 +17,8 @@ Fivem tähtäysmode scripti jolla pelaajat voi vaihtaa thirdpersonin ja firstper
 /tähtäysmode vaihtaa tähtäystä
 
 Voit myös halutessasi laittaa alla olevan exportin esim hahmoluonnin loppuun nii uudet pelaajat voi valita makunsa mukaan kun tulee servul
-  ```
-  exports['tahtausmode']:alkuvalinta()
-  ```
+```lua
+exports['tahtausmode']:alkuvalinta()
+```
 
 ## Jos löydät probleemii tai sulla on parannusehdotuksia, avaa issue tai tee pull requesti.
