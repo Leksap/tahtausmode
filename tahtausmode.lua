@@ -6,7 +6,7 @@ end
 
 TriggerEvent('chat:addSuggestion', '/tähtäysmode', 'Vaihda Thirdpersonin ja Firstpersonin väliltä', {
 })
-RegisterCommand("tähtäysmode", function()
+RegisterCommand("aim", function()
     OnkPaalla = not OnkPaalla 
     if OnkPaalla then
         SetResourceKvpInt("Persoona", 1) -- Päällä
@@ -28,7 +28,7 @@ RegisterCommand("tähtäysmode", function()
     end
 end, false)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while true do
         if OnkPaalla then
             Wait(5)
