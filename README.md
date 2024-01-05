@@ -14,7 +14,7 @@ Fivem tähtäysmode scripti jolla pelaajat voi vaihtaa thirdpersonin ja firstper
 5. Lisää `start tahtausmode` servun `server.cfg` filuun.
 
 ## Käyttö
-/tähtäysmode vaihtaa tähtäystä
+/aim vaihtaa tähtäystä firstpersonin ja thirdpersonin väliltä
 
 Voit myös halutessasi laittaa alla olevan exportin esim hahmoluonnin loppuun nii uudet pelaajat voi valita makunsa mukaan kun tulee servul
 ```lua
