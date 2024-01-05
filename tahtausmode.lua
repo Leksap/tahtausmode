@@ -4,7 +4,7 @@ if statex then
     OnkPaalla = statex == 1 -- jos yks nii pääl
 end
 
-TriggerEvent('chat:addSuggestion', '/tähtäysmode', 'Vaihda Thirdpersonin ja Firstpersonin väliltä', {
+TriggerEvent('chat:addSuggestion', '/aim', 'Vaihda Thirdpersonin ja Firstpersonin väliltä', {
 })
 RegisterCommand("aim", function()
     OnkPaalla = not OnkPaalla 
