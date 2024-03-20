@@ -61,7 +61,7 @@ lib.registerContext({
         title = 'Thirdperson',
         icon = 'gun',
         description = 'Lase',
-        image = 'https://i.imgur.com/xOvBOIU.png',
+        image = 'https://jonnelaakso.net/xd/3rd.png',
         onSelect = function()
           SetResourceKvpInt("Persoona", 0) -- Pois
           OnkPaalla = false
@@ -72,7 +72,7 @@ lib.registerContext({
         title = 'Firstperson',
         icon = 'gun',
         description = 'Se klassikko lase',
-        image = 'https://i.imgur.com/wVyTU1Q.png',
+        image = 'https://jonnelaakso.net/xd/1rd.png',
         onSelect = function()
             SetResourceKvpInt("Persoona", 1) -- Päällä
             OnkPaalla = true
