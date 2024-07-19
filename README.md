@@ -1,3 +1,5 @@
+PIENI REWORK TULOS JOSSAI KOHTAA TÄHÄ PASKAA
+
 ## Tähtäysmode
 Fivem tähtäysmode scripti jolla pelaajat voi vaihtaa thirdpersonin ja firstpersonin väliltä
 
