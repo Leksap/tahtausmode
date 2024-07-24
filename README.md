@@ -1,5 +1,3 @@
-PIENI REWORK TULOS JOSSAI KOHTAA TÄHÄ PASKAA
-
 ## Tähtäysmode
 Fivem tähtäysmode scripti jolla pelaajat voi vaihtaa thirdpersonin ja firstpersonin väliltä
 
@@ -18,7 +16,7 @@ Fivem tähtäysmode scripti jolla pelaajat voi vaihtaa thirdpersonin ja firstper
 ## Käyttö
 /aim vaihtaa tähtäystä firstpersonin ja thirdpersonin väliltä
 
-Voit myös halutessasi laittaa alla olevan exportin esim hahmoluonnin loppuun nii uudet pelaajat voi valita makunsa mukaan kun tulee servul
+Voit myös halutessasi laittaa alla olevan exportin esim hahmoluonnin loppuun nii uudet pelaajat voi valita makunsa mukaan kun tulee servulle
 ```lua
 exports['tahtausmode']:Open()
 ```
