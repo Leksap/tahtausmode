@@ -1,128 +1,40 @@
-local OnkPaalla = false
-local statex = GetResourceKvpInt("Persoona")
-if statex then
-    OnkPaalla = statex == 1 -- jos yks nii pääl
-end
-
-TriggerEvent('chat:addSuggestion', '/aim', 'Vaihda Thirdpersonin ja Firstpersonin väliltä', {
-})
-RegisterCommand("aim", function()
-    OnkPaalla = not OnkPaalla 
-    if OnkPaalla then
-        SetResourceKvpInt("Persoona", 1) -- Päällä
-        lib.notify({
-            title = 'AmpumisMode',
-            description = 'FirstPerson ampuminen käytössä',
-            type = 'success',
-            position = 'leftcenter',
-        })
-
-    else
-        SetResourceKvpInt("Persoona", 0) -- Pois
-        lib.notify({
-            title = 'AmpumisMode',
-            description = 'Thirdperson ampuminen käytössä',
-            type = 'success',
-            position = 'leftcenter',
-        })
-    end
-end, false)
-
-CreateThread(function()
-    while true do
-        if OnkPaalla then
-            Wait(5)
-            HideHudComponentThisFrame(14)
-            if IsPlayerFreeAiming(PlayerId()) then
-                if GetFollowPedCamViewMode() == 4 and check == false then
-                    check = false
-                else
-                    SetFollowPedCamViewMode(4)
-                    check = true
-                end
-            else
-                if check == true then
-                    SetFollowPedCamViewMode(1)
-                    check = false
-                end
-            end
-        else
-            Wait(500)
-        end
-    end
-end)
-
-lib.registerContext({
-    id = 'alkuvalintaxx',
-    title = 'TähtäysMode',
-    description = 'Valitse tähtäyksen tyyli',
-    options = {
-      {
-        title = 'Thirdperson',
-        icon = 'gun',
-        description = 'Lase',
-        image = 'https://jonnelaakso.net/xd/3rd.png',
-        onSelect = function()
-          SetResourceKvpInt("Persoona", 0) -- Pois
-          OnkPaalla = false
-          lib.notify({title = 'Ampumatyyli: Thirdperson', description = 'Voit myöhemmin vaihtaa tätä tekemällä /tähtäysmode', duration = 10000, type = 'success', position = 'center-left'})
-        end,
-      },
-      {
-        title = 'Firstperson',
-        icon = 'gun',
-        description = 'Se klassikko lase',
-        image = 'https://jonnelaakso.net/xd/1rd.png',
-        onSelect = function()
-            SetResourceKvpInt("Persoona", 1) -- Päällä
-            OnkPaalla = true
-          lib.notify({title = 'Ampumatyyli: Firstperson', description = 'Voit myöhemmin vaihtaa tätä tekemällä /tähtäysmode', duration = 10000, type = 'success', position = 'center-left'})
-        end,
-      },
-    }
-  })
-
-
-function alkuvalinta()
-    lib.showContext('alkuvalintaxx')
-end
-exports('alkuvalinta', alkuvalinta)
-
 -- Kolmannen persoonan rekyyli --
 local recoils = {
+    [350597077] = 6.5,			--['weapon_tecpistol']
+    [1924557585] = 5.5,			--['weapon_battlerifle']
 --customit
-    [734278471] = 6.6,			--['weaapon_uzi']
-    [199456042] = 6.6,			--['weapon_mac10']
-    [-634552258] = 0.7,			--['weapon_mp5']
+    [734278471] = 6.0,			--['weaapon_uzi']
+    [199456042] = 6.0,			--['weapon_mac10']
+    [-634552258] = 0.5,			--['weapon_mp5']
 
 
-	[-1882382516] = 1.6,			--['weapon_glock17']
-	[1498862683] = 1.9,			--['weapon_fnx45']
-	[-1143413145] = 1.8,			--['weapon_m1911']
-	[-961197366] = 1.9,			--['weapon_m9']
+	[-1882382516] = 1.0,			--['weapon_glock17']
+	[1498862683] = 1.4,			--['weapon_fnx45']
+	[-1143413145] = 1.4,			--['weapon_m1911']
+	[-961197366] = 1.5,			--['weapon_m9']
 
 
 	[562051835] = 5.0,			--['weapon_m70']
-	[-563571674] = 1.0,			--['weapon_scarh']
+	[-563571674] = 0.1,			--['weapon_scarh']
 
 	[-1327835241] = 2.5,			--['weapon_huntingrifle']
 
 	-- Handguns
-	[453432689] = 1.9,			--['weapon_pistol']
-	[-1075685676] = 1.9,		--['weapon_pistol_mk2']
-	[1593441988] = 1.7,			--['weapon_combatpistol']
-	[584646201] = 1.0,			--['weapon_appistol']
+	[453432689] = 1.5,			--['weapon_pistol']
+	[-1075685676] = 1.4,		--['weapon_pistol_mk2']
+	[1593441988] = 1.4,			--['weapon_combatpistol']
+	--[584646201] = 1.5,			--['weapon_appistol']
 	[911657153] = 1.0,			--['weapon_stungun']
-	[-1716589765] = 1.5,		--['weapon_pistol50']
-	[-1076751822] = 1.5,		--['weapon_snspistol']
-	[-771403250] = 1.5,			--['weapon_heavypistol']
-	[137902532] = 1.8,			--['weapon_vintagepistol']
+	[-1716589765] = 1.4,		--['weapon_pistol50']
+	[-1076751822] = 1.4,		--['weapon_snspistol']
+	[-771403250] = 1.8,			--['weapon_heavypistol']
+	[137902532] = 1.4,			--['weapon_vintagepistol']
 	[1198879012] = 1.0,			--['weapon_flaregun']
 	[-598887786] = 1.0,			--['weapon_marksmanpistol']
 	[-1045183535] = 1.0,		--['weapon_revolver']
 	[-879347409] = 1.0,			--['weapon_revolver_mk2']
 	[-1746263880] = 1.0,		--['weapon_doubleaction']
-	[-2009644972] = 1.9,		--['weapon_snspistol_mk2']
+	[-2009644972] = 1.4,		--['weapon_snspistol_mk2']
 	[-1355376991] = 1.0,		--['weapon_raypistol']
 	[727643628] = 1.0,			--['weapon_ceramicpistol']
 	[-1853920116] = 1.0,		--['weapon_navyrevolver']
@@ -130,9 +42,9 @@ local recoils = {
 
 	-- Submachine Guns
 	[736523883] = 4.9,			--['weapon_smg']
-	[2024373456] = 1.5,			--['weapon_smg_mk2']
+	[2024373456] = 2.3,			--['weapon_smg_mk2']
 	[-270015777] = 1.5,			--['weapon_assaultsmg']
-	[171789620] = 1.9,			--['weapon_combatpdw']
+	[171789620] = 2.0,			--['weapon_combatpdw']
 	[-619010992] = 5.5,			--['weapon_machinepistol']
 	[-1121678507] = 6.5,		--['weapon_minismg']
 	[1198256469] = 1.5,			--['weapon_raycarbine']
@@ -162,6 +74,7 @@ local recoils = {
 	[-2066285827] = 0.2,		--['weapon_bullpuprifle_mk2']
 	[-1658906650] = 0.0,		--['weapon_militaryrifle']
 	[-774507221] = 5.9,		--['weapon_tacticalrifle']
+	[-947031628] = 5.9,		--['heavyrifle']
 
 
 	-- Light Machine Guns
@@ -190,45 +103,161 @@ local recoils = {
 	[-1238556825] = 0.3,		--['weapon_rayminigun']
 }
 
+local OnkPaalla = false
+local statex = GetResourceKvpInt("Persoona")
+if statex then
+	OnkPaalla = statex == 1 -- jos yks nii pääl
+end
 
-CreateThread(function()
-	while true do
-        if not OnkPaalla then
-		local ped = PlayerPedId()
-		if IsPedShooting(ped) and not IsPedDoingDriveby(ped) then
-			local _,wep = GetCurrentPedWeapon(ped)
-			_,cAmmo = GetAmmoInClip(ped, wep)
-			if recoils[wep] and recoils[wep] ~= 0 then
-				tv = 0
-				if GetFollowPedCamViewMode() ~= 4 then
-					repeat 
-						Wait(0)
-						p = GetGameplayCamRelativePitch()
-						SetGameplayCamRelativePitch(p+0.1, 0.2)
-						tv = tv+0.1
-					until tv >= recoils[wep]
+local currentWeapon = cache.weapon
+local function enableFirstPersonShooting()
+	CreateThread(function()
+		while true do
+			Wait(5)
+			HideHudComponentThisFrame(14)
+	
+			if IsPlayerFreeAiming(cache.playerId) then
+				if GetFollowPedCamViewMode() == 4 and check == false then
+					check = false
 				else
-					repeat 
-						Wait(0)
-						p = GetGameplayCamRelativePitch()
-						if recoils[wep] > 0.1 then
-							SetGameplayCamRelativePitch(p+0.6, 1.2)
-							tv = tv+0.6
-						else
-							SetGameplayCamRelativePitch(p+0.016, 0.333)
-							tv = tv+0.1
-						end
-					until tv >= recoils[wep]
+					SetFollowPedCamViewMode(4)
+					check = true
 				end
-            end
+			else
+				if check == true then
+					SetFollowPedCamViewMode(1)
+					check = false
+				end
+			end
+	
+			if not currentWeapon or not OnkPaalla then
+				break
 			end
 		end
-		Wait(0)
+	end)
+end
+
+--Recoil gaycore poista jos et haluu
+local function recoilLoop()
+	local ped = cache.ped
+	CreateThread(function()
+		while true do
+			Wait(0)
+			if IsPedShooting(ped) and not IsPedDoingDriveby(ped) then
+				local _,wep = GetCurrentPedWeapon(ped)
+				_,cAmmo = GetAmmoInClip(ped, wep)
+				if recoils[wep] and recoils[wep] ~= 0 then
+					tv = 0
+					if GetFollowPedCamViewMode() ~= 4 then
+						repeat 
+							Wait(0)
+							p = GetGameplayCamRelativePitch()
+							SetGameplayCamRelativePitch(p+0.1, 0.2)
+							tv = tv+0.1
+						until tv >= recoils[wep]
+					else
+						repeat 
+							Wait(0)
+							p = GetGameplayCamRelativePitch()
+							if recoils[wep] > 0.1 then
+								SetGameplayCamRelativePitch(p+0.6, 1.2)
+								tv = tv+0.6
+							else
+								SetGameplayCamRelativePitch(p+0.016, 0.333)
+								tv = tv+0.1
+							end
+						until tv >= recoils[wep]
+					end
+				end
+			end
+
+	
+			if not currentWeapon or OnkPaalla then
+				break
+			end
+		end
+	end)
+end
+
+if currentWeapon and OnkPaalla then
+	enableFirstPersonShooting()
+else
+	recoilLoop()
+end
+
+lib.onCache('weapon', function(value)
+	currentWeapon = value
+	if not OnkPaalla then
+		recoilLoop()
 	end
+	if not currentWeapon or not OnkPaalla then return end
+
+	enableFirstPersonShooting()
 end)
 
+lib.registerContext({
+	id = 'tahtaysmodemenu',
+	title = 'TähtäysMode',
+	description = 'Valitse tähtäyksen tyyli',
+	options = {
+		{
+			title = 'Thirdperson',
+			icon = 'gun',
+			onSelect = function()
+				SetResourceKvpInt("Persoona", 0) -- Pois
+				OnkPaalla = false
 
+				lib.notify({
+					title = 'Ampumatyyli: Thirdperson',
+					description =
+					'Voit myöhemmin vaihtaa tätä tekemällä /tähtäysmode',
+				})
+			end,
+		},
+		{
+			title = 'Firstperson',
+			icon = 'gun',
+			onSelect = function()
+				OnkPaalla = true
+				enableFirstPersonShooting()
+				SetResourceKvpInt("Persoona", 1) -- Päällä
 
+				lib.notify({
+					title = 'Ampumatyyli: Firstperson',
+					description =
+					'Voit myöhemmin vaihtaa tätä tekemällä /tähtäysmode',
+				})
+			end,
+		},
+	}
+})
 
--- FirstPerson Rekyyyli --
- --      Todo 
+function Open()
+	lib.showContext('tahtaysmodemenu')
+end
+exports('Open', Open)
+
+TriggerEvent('chat:addSuggestion', '/aim', 'Vaihda Thirdpersonin ja Firstpersonin väliltä', {})
+RegisterCommand("aim", function()
+    OnkPaalla = not OnkPaalla
+    if OnkPaalla then
+        SetResourceKvpInt("Persoona", 1) -- Päällä
+		enableFirstPersonShooting()
+        lib.notify({
+            title = 'AmpumisMode',
+            description = 'FirstPerson ampuminen käytössä',
+            type = 'success',
+            position = 'bottom',
+        })
+
+    else
+        SetResourceKvpInt("Persoona", 0) -- Pois
+		recoilLoop()
+        lib.notify({
+            title = 'AmpumisMode',
+            description = 'Thirdperson ampuminen käytössä',
+            type = 'success',
+            position = 'bottom',
+        })
+    end
+end, false)
