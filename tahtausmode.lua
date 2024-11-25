@@ -1,4 +1,4 @@
--- Kolmannen persoonan rekyyli --
+-- Kolmannen persoonan rekyyli -- Ei suositella
 local recoils = {
     [350597077] = 6.5,			--['weapon_tecpistol']
     [1924557585] = 5.5,			--['weapon_battlerifle']
@@ -106,7 +106,7 @@ local recoils = {
 local OnkPaalla = false
 local statex = GetResourceKvpInt("Persoona")
 if statex then
-	OnkPaalla = statex == 1 -- jos yks nii pääl
+	OnkPaalla = statex == 1
 end
 
 local currentWeapon = cache.weapon
